@@ -19,15 +19,19 @@ const Experience = () => {
         "Machine Learning",
         "Deep Learning",
         "AWS",
-        "Python",
         "Data Engineering",
+        "Statisitcs",
         "Computer Vision",
+        "NLP",
         "IoT",
-        "Generative AI"
+        "Generative AI",
+        "Python",
+        "C++",
+        "Mysql"
       ],
       achievements: [
         "Reduced manual monitoring time by 60%",
-        "Improved prediction accuracy by 40%",
+        "Improved prediction accuracy by 90%",
         "Automated data processing pipeline"
       ]
     }

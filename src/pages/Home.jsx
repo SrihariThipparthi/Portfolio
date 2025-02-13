@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion';
+import profileImage from '../imgs/about_img.jpg';
 
 function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center space-y-8 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center space-y-8 p-4 bg-transparent">
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg shadow-blue-500/50"
+        className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg shadow-blue-500/50 backdrop-blur-sm"
       >
         <img
-          src="/profile.jpg" // Add your profile photo to the public folder
+          src={profileImage}
           alt="Srihari Thipparthi"
           className="w-full h-full object-cover"
         />
@@ -20,17 +21,16 @@ function Home() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="text-center space-y-4"
+        className="text-center space-y-4 backdrop-blur-sm p-6 rounded-xl bg-black/5"
       >
-        <h1 className="text-5xl font-bold text-blue-400">
+        <h1 className="text-5xl font-bold text-white">
           Srihari Thipparthi
         </h1>
-        <h2 className="text-2xl text-gray-400">
+        <h2 className="text-2xl text-gray-300">
           Data Scientist / Machine Learning Engineer
         </h2>
         <p className="max-w-lg mx-auto text-gray-300">
-          Passionate about creating innovative solutions with modern technologies.
-          Specialized in full-stack development and machine learning.
+          Driving Innovation with AI and Data-Driven Insights.
         </p>
       </motion.div>
 
