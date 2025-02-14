@@ -7,7 +7,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write     # Add permissions
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,15 +18,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm'   # Add caching
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm ci          # Use ci instead of install for clean installs
+        env:
+          CI: true       # Set CI environment variable
 
       - name: Build
-        run: npm run build
+        run: |
+          npm install -g vite    # Install vite globally
+          npm run build
+        env:
+          CI: true
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          force_orphan: true     # Add this to ensure clean deployments
